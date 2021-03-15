@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
@@ -11,15 +17,15 @@ body {
 .Divcontainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: normal;
   align-items: center;
-  min-height: 95vh;
+  height: 600px;
 }
 footer {
   background: rgba(54, 54, 54, 0.8);
   width: 100%;
-  position: fixed;
-  padding: 20px 20px;
+  position: static;
+  padding: 25px 25px;
   bottom: 0;
 }
 .translucent-form-overlay {
@@ -59,15 +65,27 @@ footer {
   color: #8a8a8a;
 }
 
+header {
+  padding: 10px 15px;
+  background-color: rgba(54, 54, 54, 0.8);
+}
+
+header h1 {
+  font-weight: bold;
+  font-size: 36px;
+  color: white;
+  margin: 0;
+  display: inline;
+}
 
 .split {
   height: 100%;
   width: 50%;
-  position: fixed;
+  position: static;
   z-index: 1;
   top: 100px;
-  overflow-x: hidden;
-  padding-top: 20px;
+  overflow-x: scroll;
+  text-align: left;
 }
 
 .left {
@@ -78,11 +96,10 @@ footer {
   right: 0;
   background-color: white;
 }
-.centered {
+/* .centered {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-}
-
+} */

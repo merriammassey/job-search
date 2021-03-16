@@ -28,3 +28,7 @@ footer {
 .searchSnippet{
   font-size: medium;
 }
+
+.modal{
+  background-color: #f5939d;
+}

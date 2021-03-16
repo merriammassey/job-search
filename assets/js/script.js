@@ -66,11 +66,7 @@ var getJobDetails = function (title, location) {
 function searchJobs() {
   var searchTerm = jobSearch.value;
   var searchLocation;
-  var searchApi =
-    "https://www.googleapis.com/customsearch/v1/siterestrict?key=AIzaSyDN1URsMNvO298DwJn6yW7QN8FC-uaAe-U&cx=261baf09873055c10&cr=us&dateRestrict=d[30]&num=10&sort=date&q=" +
-    searchTerm +
-    "&hq=";
-  searchLocation;
+
 
   //determine which inputs to use for location variable in searches
   if (
@@ -86,11 +82,22 @@ function searchJobs() {
       zipSearchContainer.value;
   } else if (locationSearch.value !== "" && stateSearchContainer.value !== "") {
     searchLocation = locationSearch.value + ", " + stateSearchContainer.value;
+
   } else if (zipSearchContainer.value !== "") {
     searchLocation = zipSearchContainer.value;
+ 
   } else {
     locationModal();
   }
+  var searchApi =
+    "https://www.googleapis.com/customsearch/v1/siterestrict?key=AIzaSyDN1URsMNvO298DwJn6yW7QN8FC-uaAe-U&cx=261baf09873055c10&cr=us&dateRestrict=d[30]&num=10&sort=date&q=" +
+    searchTerm +
+    " " + 
+  searchLocation;
+
+  console.log('searchTerm', searchTerm)
+  console.log('searchLocation', searchLocation);
+  console.log(searchApi);
 
   if (jobSearch.value !== "") {
     fetch(searchApi).then(function (response) {
@@ -111,6 +118,7 @@ function searchJobs() {
               description: searchDescription,
             });
           }
+          //pass variables to next functions
           displaySearchResults(searchArr);
           getJobDetails(searchTerm, searchLocation);
         });
